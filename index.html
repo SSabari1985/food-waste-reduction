@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Food Waste Reduction System</title>
+
+    <!-- Premium typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- Navbar -->
+    <header class="topbar" role="banner">
+      <div class="container topbar__inner">
+        <div class="brand" aria-label="Food Waste Reduction System">
+          <div class="brand__mark" aria-hidden="true">
+            <!-- Simple inline icon -->
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M7 13.5c0-3.6 2.6-7.5 5-9 2.4 1.5 5 5.4 5 9 0 4-3 6.5-5 7-2-.5-5-3-5-7Z"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M6.2 20.2c1.4.6 3 .9 4.8.9 1.8 0 3.4-.3 4.8-.9"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+              />
+            </svg>
+          </div>
+          <div class="brand__text">
+            <div class="brand__name">Food Waste Reduction</div>
+            <div class="brand__tag">Feed Lives • Reduce Waste</div>
+          </div>
+        </div>
+
+        <nav class="nav" aria-label="Primary">
+          <a class="nav__link" href="#top" data-nav>Home</a>
+          <a class="nav__link nav__link--accent" href="#donate" data-nav>
+            Donate Food
+          </a>
+          <a class="nav__link" href="#donations" data-nav>
+            View Donations
+            <span class="badge" id="donationsBadge" aria-label="Total donations">0</span>
+          </a>
+          <button class="nav__cta" type="button" id="refreshStatsBtn" title="Refresh donations count">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path
+                d="M20 12a8 8 0 0 1-14.9 4"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+              />
+              <path
+                d="M4 12A8 8 0 0 1 18.9 8"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+              />
+              <path
+                d="M20 12v-4h-4"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M4 12v4h4"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            Refresh
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- Landing -->
+      <section class="hero" id="top" aria-label="Landing">
+        <div class="container hero__grid">
+          <div class="hero__left">
+            <div class="pill" role="note">
+              <span class="pill__dot" aria-hidden="true"></span>
+              Startup-grade matching for food donation
+            </div>
+
+            <h1 class="hero__title">
+              Reduce Food Waste,
+              <span class="gradient-text">Feed Lives</span>
+            </h1>
+
+            <p class="hero__subtitle">
+              Food shouldn’t end up in landfills. Donate surplus meals and track real impact in
+              seconds. Our system helps communities coordinate faster, so more food reaches people
+              who need it.
+            </p>
+
+            <div class="hero__actions">
+              <button class="btn btn--primary" type="button" id="donateHeroBtn">
+                Donate Food
+                <svg class="btn__icon" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path
+                    d="M12 5v14"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                  />
+                  <path
+                    d="M19 12H5"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </button>
+              <a class="btn btn--ghost" href="#donations" data-nav>
+                See live donations
+              </a>
+            </div>
+
+            <div class="hero__stats">
+              <div class="stat">
+                <div class="stat__value" id="donationsCountHero">0</div>
+                <div class="stat__label">Total donations logged</div>
+              </div>
+              <div class="stat">
+                <div class="stat__value">Fast</div>
+                <div class="stat__label">Submit in under 30 seconds</div>
+              </div>
+              <div class="stat">
+                <div class="stat__value">Simple</div>
+                <div class="stat__label">JSON-backed storage for hackathons</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero__right" aria-hidden="true">
+            <div class="card hero-card">
+              <div class="hero-card__top">
+                <div class="hero-card__icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M12 2c3 4 6 7 6 11a6 6 0 0 1-12 0c0-4 3-7 6-11Z"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M9.3 13.2 11 15l3.7-4.2"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <div class="hero-card__title">Impact Snapshot</div>
+                  <div class="hero-card__subtitle">Realtime count from your backend</div>
+                </div>
+              </div>
+              <div class="impact">
+                <div class="impact__main">
+                  <div class="impact__label">Donations</div>
+                  <div class="impact__value" id="donationsCountSide">0</div>
+                </div>
+                <div class="impact__footer">
+                  <div class="mini">
+                    <div class="mini__label">Next donation</div>
+                    <div class="mini__value">Just a form away</div>
+                  </div>
+                </div>
+              </div>
+              <div class="hero-card__shine"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Donate -->
+      <section class="section" id="donate" aria-label="Donate Food">
+        <div class="container">
+          <div class="section__head">
+            <div>
+              <h2 class="section__title">Donate Food</h2>
+              <p class="section__subtitle">
+                Share surplus food details so the right people can receive it quickly.
+              </p>
+            </div>
+            <div class="section__meta">
+              <div class="meta-pill">
+                <span class="meta-pill__icon" aria-hidden="true">✓</span>
+                Secure & validated
+              </div>
+              <div class="meta-pill meta-pill--soft">
+                <span class="meta-pill__icon" aria-hidden="true">⏱</span>
+                Instant updates
+              </div>
+            </div>
+          </div>
+
+          <div class="grid grid--2">
+            <div class="card">
+              <form id="donateForm" class="form" novalidate>
+                <div class="form__row">
+                  <label class="label" for="foodName">Food Name</label>
+                  <div class="input-wrap">
+                    <span class="input-icon" aria-hidden="true">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                        <path
+                          d="M7 13.5c0-3.6 2.6-7.5 5-9 2.4 1.5 5 5.4 5 9 0 4-3 6.5-5 7-2-.5-5-3-5-7Z"
+                          stroke="currentColor"
+                          stroke-width="1.8"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </span>
+                    <input
+                      id="foodName"
+                      name="foodName"
+                      class="input"
+                      type="text"
+                      placeholder="e.g., Biryani, Bread, Salad"
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+
+                <div class="form__row">
+                  <label class="label" for="quantity">Quantity</label>
+                  <div class="input-wrap">
+                    <span class="input-icon" aria-hidden="true">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                        <path
+                          d="M4 7h16M4 17h16"
+                          stroke="currentColor"
+                          stroke-width="1.8"
+                          stroke-linecap="round"
+                        />
+                        <path
+                          d="M7 7l5 10 5-10"
+                          stroke="currentColor"
+                          stroke-width="1.8"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </span>
+                    <input
+                      id="quantity"
+                      name="quantity"
+                      class="input"
+                      type="number"
+                      min="1"
+                      step="1"
+                      placeholder="e.g., 30"
+                      inputmode="numeric"
+                    />
+                  </div>
+                  <div class="hint">Numbers only. We’ll store it as an integer.</div>
+                </div>
+
+                <div class="form__row">
+                  <label class="label" for="location">Location</label>
+                  <div class="input-wrap">
+                    <span class="input-icon" aria-hidden="true">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                        <path
+                          d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11Z"
+                          stroke="currentColor"
+                          stroke-width="1.8"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M12 10.5a2.2 2.2 0 1 0 0-.01Z"
+                          stroke="currentColor"
+                          stroke-width="1.8"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </span>
+                    <input
+                      id="location"
+                      name="location"
+                      class="input"
+                      type="text"
+                      placeholder="e.g., Downtown Shelter, Block 12"
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+
+                <div class="form__actions">
+                  <button class="btn btn--primary btn--submit" type="submit" id="submitBtn">
+                    <span class="btn__label">Submit Donation</span>
+                    <span class="btn__spinner" aria-hidden="true"></span>
+                  </button>
+                  <div class="form__fineprint">
+                    By submitting, you’re helping reduce waste and support your community.
+                  </div>
+                </div>
+
+                <div class="alert alert--success" id="successAlert" role="status" aria-live="polite" hidden>
+                  <div class="alert__icon" aria-hidden="true">✓</div>
+                  <div>
+                    <div class="alert__title">Donation submitted</div>
+                    <div class="alert__msg" id="successMsg">
+                      Your details were saved successfully.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="alert alert--error" id="errorAlert" role="alert" hidden>
+                  <div class="alert__icon" aria-hidden="true">!</div>
+                  <div>
+                    <div class="alert__title">Something went wrong</div>
+                    <div class="alert__msg" id="errorMsg"></div>
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            <div class="card card--soft">
+              <div class="card__head">
+                <div class="card__headTitle">How it works</div>
+                <div class="card__headSubtitle">Simple flow, premium experience</div>
+              </div>
+              <div class="steps">
+                <div class="step">
+                  <div class="step__num">1</div>
+                  <div class="step__body">
+                    <div class="step__title">Describe the food</div>
+                    <div class="step__desc">Enter food name, quantity, and where it’s available.</div>
+                  </div>
+                </div>
+                <div class="step">
+                  <div class="step__num">2</div>
+                  <div class="step__body">
+                    <div class="step__title">We validate inputs</div>
+                    <div class="step__desc">Empty fields and invalid numbers are blocked instantly.</div>
+                  </div>
+                </div>
+                <div class="step">
+                  <div class="step__num">3</div>
+                  <div class="step__body">
+                    <div class="step__title">View donations</div>
+                    <div class="step__desc">Your submission appears immediately on the dashboard.</div>
+                  </div>
+                </div>
+              </div>
+
+              
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Donations -->
+      <section class="section section--alt" id="donations" aria-label="View Donations">
+        <div class="container">
+          <div class="section__head">
+            <div>
+              <h2 class="section__title">View Donations</h2>
+              <p class="section__subtitle">Browse and refresh to see the latest entries.</p>
+            </div>
+            <div class="section__meta">
+              <div class="meta-pill meta-pill--alt">
+                <span class="meta-pill__icon" aria-hidden="true">⎔</span>
+                Total: <strong id="donationsCountMeta">0</strong>
+              </div>
+              <button class="btn btn--ghost btn--sm" type="button" id="refreshDonationsBtn">
+                Refresh data
+              </button>
+            </div>
+          </div>
+
+          <div id="donationsLoading" class="loading" aria-live="polite" hidden>
+            <div class="loading__spinner" aria-hidden="true"></div>
+            <div class="loading__text">Loading donations…</div>
+          </div>
+
+          <div id="donationsEmpty" class="empty" hidden>
+            <div class="empty__icon" aria-hidden="true">🍽️</div>
+            <div class="empty__title">No donations yet</div>
+            <div class="empty__desc">Be the first to donate food and start reducing waste.</div>
+            <a class="btn btn--primary btn--sm" href="#donate" data-nav>
+              Donate Food
+            </a>
+          </div>
+
+          <div id="donationsCards" class="cards" aria-label="Donation cards"></div>
+          <div id="donationsTableWrap" class="table-wrap" aria-label="Donation table">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Food</th>
+                  <th>Quantity</th>
+                  <th>Location</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+              <tbody id="donationsTbody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div class="container footer__inner">
+          <div class="footer__left">
+            <div class="footer__brand">Food Waste Reduction System</div>
+            <div class="footer__tag">A premium hackathon-ready donation dashboard.</div>
+          </div>
+          <div class="footer__right">
+            <a class="footer__link" href="#top" data-nav>Back to top</a>
+            <span class="footer__dot" aria-hidden="true">•</span>
+            <span class="footer__muted">Built with Node.js + Express + JSON</span>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true" hidden>
+      <div class="toast__icon" aria-hidden="true">✓</div>
+      <div class="toast__text" id="toastText">Saved</div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+
+
